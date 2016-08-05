@@ -13,7 +13,7 @@ $(document).ready(function() {
       if (player === 1) {
         squareSelected.addClass('ex');
         if (checkIfPlayerWon('ex')) {
-          alert('You have won');
+          alert('You have won player'+ player +' ');
         } else {
           player = 2;
         }
@@ -21,14 +21,13 @@ $(document).ready(function() {
       } else {
         squareSelected.addClass('oh');
         if (checkIfPlayerWon('oh')) {
-          alert('You have won');
+          alert('You have won player '+ player +' ');
         } else {
           player = 1;
         }
       }
     }
-
-});
+  });
 
   function checkIfPlayerWon(symbol) {
     //for rows
@@ -38,28 +37,24 @@ $(document).ready(function() {
       return true;
     } else if ($('.item7').hasClass(symbol) && $('.item8').hasClass(symbol) && $('.item9').hasClass(symbol)) {
       return true;
+
+    //for columns
+    } else if ($('.item1').hasClass(symbol) && $('.item4').hasClass(symbol) && $('.item7').hasClass(symbol)) {
+      return true;
+    } else if ($('.item2').hasClass(symbol) && $('.item5').hasClass(symbol) && $('.item8').hasClass(symbol)) {
+      return true;
+    } else if ($('.item3').hasClass(symbol) && $('.item6').hasClass(symbol) && $('.item9').hasClass(symbol)) {
+      return true;
+
+    //for diagonals
+    } else if ($('.item1').hasClass(symbol) && $('.item5').hasClass(symbol) && $('.item9').hasClass(symbol)) {
+      return true;
+    } else if ($('.item3').hasClass(symbol) && $('.item5').hasClass(symbol) && $('.item7').hasClass(symbol)) {
+      return true;
+
+    //false
     } else {
       return false;
     }
   }
-
 });
-
-//       //for columns
-//     } else if ($('.item1').hasClass(symbol) && $('.item4').hasClass(symbol) && $('.item7').hasClass(symbol)) {
-//       return true;
-//     } else if ($('.item2').hasClass(symbol) && $('.item5').hasClass(symbol) && $('.item8').hasClass(symbol)) {
-//       return true;
-//     } else if ($('.item3').hasClass(symbol) && $('.item6').hasClass(symbol) && $('.item9').hasClass(symbol)) {
-//       return true;
-//       //for diagonals
-//     } else if ($('.item1').hasClass(symbol) && $('.item5').hasClass(symbol) && $('.item9').hasClass(symbol)) {
-//       return true;
-//     } else if ($('.item3').hasClass(symbol) && $('.item5').hasClass(symbol) && $('.item7').hasClass(symbol)) {
-//       return true;
-//       //false
-//     } else {
-//       return false;
-//     }
-//
-// };
