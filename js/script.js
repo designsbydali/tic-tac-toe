@@ -74,7 +74,7 @@ $(document).ready(function() {
       //false
     } else {
       return false;
-    }
+      }
   }
 
   //Score keeping
@@ -95,6 +95,21 @@ $(document).ready(function() {
     $('.square').removeClass('fa fa-times-circle fa fa-check-circle');
     player = 1;
   }
+
+  //check for ties
+  // function Tie() {
+  //   if (checkIfPlayerWon ('fa fa-times-circle') || ('fa fa-check-circle')) {
+  //
+  //   }
+
+  function moveMaker() {
+    if ($('#currentPlayer').text()==='1') {
+      $('#currentPlayer').text('2')
+    } else {
+      $('#currentPlayer').text('1')
+    }
+  }
+
 
 
 });
