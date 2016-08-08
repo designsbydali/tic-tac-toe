@@ -1,51 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="css/style.css" media="screen" charset="utf-8">
-  </head>
-  <body>
-    <h1>Tic Tac Toe</h1>
-    <h2>Current Player: <span>1</span></h2>
 
-    <table class="score">
-      <thead>
-        <tr>
-          <th>Player 1 Score</th>
-          <th>Player 2 Score</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-      </tbody>
-    </table>
+<head>
+  <meta charset="utf-8">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css" media="screen" charset="utf-8">
+</head>
 
-    <table class="board">
-      <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+<body>
+  <h1>Tic Tac Toe</h1>
+  <h2>Current Player: <span>1</span></h2>
 
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    
-    <script src="js/script.js" charset="utf-8"></script>
-  </body>
+  <table class="score">
+    <thead>
+      <tr>
+        <th>Player 1 Score</th>
+        <th>Player 2 Score</th>
+        <th>Tie</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="one">0</td>
+        <td id="two">0</td>
+        <td id="tie">0</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="board">
+    <tbody>
+      <tr class="row">
+        <td class="square bottom right item1"></td>
+        <td class="square bottom right item2"></td>
+        <td class="square bottom item3"></td>
+      </tr>
+      <tr class="row">
+        <td class="square bottom right item4"></td>
+        <td class="square bottom right item5"></td>
+        <td class="square bottom item6"></td>
+      </tr>
+      <tr class="row">
+        <td class="square right item7"></td>
+        <td class="square right item8"></td>
+        <td class="square item9"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- <button class="reset">Reload page</button> -->
+
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+  <script src="js/script.js" charset="utf-8"></script>
+</body>
+
 </html>
