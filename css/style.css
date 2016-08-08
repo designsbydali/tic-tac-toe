@@ -1,36 +1,42 @@
 body {
   text-align: center;
 }
-
 table {
-  margin: 20px auto;
+  margin: 40px auto;
 }
-
-table.board {
+.board {
   border-collapse: collapse;
-  font-size: 50px;
+  text-align: center;
+  /*font-size: 50px;*/
+  /*width: 360px;*/
+  /*margin: 0 auto;*/
+
 }
 
-.board td {
+/*board td {
   width: 100px;
   height: 100px;
   text-align: center;
-  border: 5px solid black;
+  border: 1px solid black;
   cursor: pointer;
-}
+}*/
 
-.board tr td:first-child {
-  border-left: none;
+.row {
+  clear: both;
+  overflow: hidden;
 }
-
-.board tr td:last-child {
-  border-right: none;
+.square {
+  float: left;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 70px;
 }
-
-.board tr:first-child td {
-  border-top: none;
+.bottom {
+  border-bottom: 2px solid black;
 }
-
-.board tr:last-child td {
-  border-bottom: none;
+.right {
+  border-right: 2px solid black;
 }
