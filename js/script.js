@@ -5,6 +5,7 @@ $(document).ready(function() {
   var displayNextPlayer = (turn, player);
   var playerOneScore = 0;
   var playerTwoScore = 0;
+  var tie = 0;
 
 
 
@@ -15,33 +16,32 @@ $(document).ready(function() {
     //Brings back this alert if clicked on an already marked box.
     if (squareSelected.hasClass('fa fa-times-circle') || squareSelected.hasClass('fa fa-check-circle')) {
       alert('CMON, pick another box!');
-    } else {
-      if (player === 1) {
-        //adds cross icon as class to the selected box
-        squareSelected.addClass('fa fa-times-circle');
-        //runs the checkIfPlayerWon function and alerts win when true.
-        if (checkIfPlayerWon('fa fa-times-circle')) {
-          alert('You have won player' + player + ' ');
-          score ();
-          reset ();
-          //if player won then resets board
-        } else {
-          //if not switches to player 2.
-          player = 2;
-        }
-
+    } else
+    if (player === 1) {
+      //adds cross icon as class to the selected box
+      squareSelected.addClass('fa fa-times-circle');
+      //runs the checkIfPlayerWon function and alerts win when true.
+      if (checkIfPlayerWon('fa fa-times-circle')) {
+        alert('You have won player' + player + ' ');
+        score();
+        reset();
+        //if player won then resets board
       } else {
-        //adds a check icon as class to the box selected
-        squareSelected.addClass('fa fa-check-circle');
-        //runs the checkIfPlayerWon function and alerts win when true.
-        if (checkIfPlayerWon('fa fa-check-circle')) {
-          alert('You have won player ' + player + ' ');
-          score ();
-          reset ();
-          //if not switches to player 1.
-        } else {
-          player = 1;
-        }
+        //if not switches to player 2.
+        player = 2;
+      }
+
+    } else {
+      //adds a check icon as class to the box selected
+      squareSelected.addClass('fa fa-check-circle');
+      //runs the checkIfPlayerWon function and alerts win when true.
+      if (checkIfPlayerWon('fa fa-check-circle')) {
+        alert('You have won player ' + player + ' ');
+        score();
+        reset();
+        //if not switches to player 1.
+      } else {
+        player = 1;
       }
     }
   });
@@ -76,53 +76,21 @@ $(document).ready(function() {
       return false;
     }
   }
+  //Score keeping
+  function score() {
+      if (checkIfPlayerWon("fa fa-times-circle")) {
+      playerOneScore++
+      $('#one').text(playerOneScore++)
 
-  //reset the game
+    } else if (checkIfPlayerWon('fa fa-check-circle')) {
+      playerTwoScore++
+      $('#two').text(playerTwoScore++)
+        // alert('no way')
+    }
+  }
+  //clear the board
   function reset() {
-    
-    // y = confirm('Play Again?');
-    // if (y === true) {
-    //   // alert('Right ON!');
-    //   location.reload(true);
-    // } else {
-    //   alert('See ya later!');
-    //   location.reload(true);
-    // }
+    $('.square').removeClass('fa fa-times-circle fa fa-check-circle');
   }
-
-  function score () {
-	if (checkIfPlayerWon("fa fa-times-circle")) {
-    playerOneScore++
-    $('#one').text(playerOneScore++)
-    // alert ('caramba')
-    // th.playerOneScore += 0;
-	} else if (checkIfPlayerWon('fa fa-check-circle')) {
-    playerTwoScore ++
-    $('#two').text(playerTwoScore++)
-      // alert('no way')
-  }
-}
-
 
 });
-//reset game once a player has won.
-//
-// function startNewGame() = function () {
-//       turn = "fa fa-times-circle";
-//       score = {"fa fa-times-circle": 0, "fa fa-check-circle": 0};
-//       moves = 0;
-//       squares.forEach(function (square) {square.html(EMPTY);});
-//   },
-
-
-
-// function displayNextPlayer(turn, player) {
-//   turn.h2('Current Player : ' + player);
-// }
-
-
-// function reset(table) {
-//   table.find('td').each(function() {
-//     $(this).removeClass('circle').removeClass('cross');
-//   });
-// }
