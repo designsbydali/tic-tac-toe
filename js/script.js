@@ -76,21 +76,25 @@ $(document).ready(function() {
       return false;
     }
   }
+
   //Score keeping
   function score() {
       if (checkIfPlayerWon("fa fa-times-circle")) {
       playerOneScore++
-      $('#one').text(playerOneScore++)
+      $('#one').text(playerOneScore)
 
     } else if (checkIfPlayerWon('fa fa-check-circle')) {
       playerTwoScore++
-      $('#two').text(playerTwoScore++)
+      $('#two').text(playerTwoScore)
         // alert('no way')
     }
   }
+
   //clear the board
   function reset() {
     $('.square').removeClass('fa fa-times-circle fa fa-check-circle');
+    player = 1;
   }
+
 
 });
