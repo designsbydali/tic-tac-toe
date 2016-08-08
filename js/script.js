@@ -3,6 +3,10 @@ $(document).ready(function() {
   var player = 1;
   var turn = $('.turn');
   var displayNextPlayer = (turn, player);
+  var playerOneScore = 0;
+  var playerTwoScore = 0;
+
+
 
   //on click method for user to input at their turn
   $('.square').on('click', function(event) {
@@ -18,6 +22,7 @@ $(document).ready(function() {
         //runs the checkIfPlayerWon function and alerts win when true.
         if (checkIfPlayerWon('fa fa-times-circle')) {
           alert('You have won player' + player + ' ');
+          score ();
           reset ();
           //if player won then resets board
         } else {
@@ -31,6 +36,7 @@ $(document).ready(function() {
         //runs the checkIfPlayerWon function and alerts win when true.
         if (checkIfPlayerWon('fa fa-check-circle')) {
           alert('You have won player ' + player + ' ');
+          score ();
           reset ();
           //if not switches to player 1.
         } else {
@@ -44,6 +50,7 @@ $(document).ready(function() {
   function checkIfPlayerWon(symbol) {
     //check for rows
     if ($('.item1').hasClass(symbol) && $('.item2').hasClass(symbol) && $('.item3').hasClass(symbol)) {
+
       return true;
     } else if ($('.item4').hasClass(symbol) && $('.item5').hasClass(symbol) && $('.item6').hasClass(symbol)) {
       return true;
@@ -72,31 +79,29 @@ $(document).ready(function() {
 
   //reset the game
   function reset() {
-    y = confirm('Play Again?');
-    if (y === true) {
-      // alert('Right ON!');
-      location.reload(true);
-    } else {
-      alert('See ya later!');
-      location.reload(true);
-    }
+    
+    // y = confirm('Play Again?');
+    // if (y === true) {
+    //   // alert('Right ON!');
+    //   location.reload(true);
+    // } else {
+    //   alert('See ya later!');
+    //   location.reload(true);
+    // }
   }
 
-  //check for turn
-  // function turn() {
-  //   if (checkIfPlayerWon() )
-  //     this.turn = (this.turn == "fa fa-times-circle") ? "fa fa-times-circle" : "fa fa-check-circle";
-  //     this.win = this.checkIfPlayerWon();
-  //     if (this.win) {
-  //         this.endGame();
-  //     }
-  //   }
-    /*
-    for (var i = 0; i<  ; i++)
-
+  function score () {
+	if (checkIfPlayerWon("fa fa-times-circle")) {
+    playerOneScore++
+    $('#one').text(playerOneScore++)
+    // alert ('caramba')
+    // th.playerOneScore += 0;
+	} else if (checkIfPlayerWon('fa fa-check-circle')) {
+    playerTwoScore ++
+    $('#two').text(playerTwoScore++)
+      // alert('no way')
   }
-
-  */
+}
 
 
 });
