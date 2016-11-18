@@ -74,12 +74,12 @@ $(document).ready(function() {
       //false
     } else {
       return false;
-      }
+    }
   }
 
   //Score keeping
   function score() {
-      if (checkIfPlayerWon("fa fa-times-circle")) {
+    if (checkIfPlayerWon("fa fa-times-circle")) {
       playerOneScore++
       $('#one').text(playerOneScore)
 
@@ -103,7 +103,7 @@ $(document).ready(function() {
   //   }
 
   function moveMaker() {
-    if ($('#currentPlayer').text()==='1') {
+    if ($('#currentPlayer').text() === '1') {
       $('#currentPlayer').text('2')
     } else {
       $('#currentPlayer').text('1')
